@@ -1,21 +1,33 @@
 {TextLayer} = require 'TextLayer'
 
+# Set background color
+Screen.backgroundColor = "#AAEEFF"
+
+main_width = Screen.width
+main_height = Screen.height
+	
+#Create the background	
+quicklinks_background = new BackgroundLayer 
+	x:Align.centerX
+	y: Align.centerY
+	image: "images/CMU-Tartan-Digital.png"
+
 ### Initialize numbers ###
 
 textsize = 45
 infoborderRadius = 15
-infoscreenw = 0.9*Screen.width
-infoscreenh = 0.8*Screen.height
-infoscreenX0 = (Screen.width - infoscreenw)/2
-infoscreenY0 = (Screen.height - infoscreenh)/2
+infoscreenw = 0.9*main_width
+infoscreenh = 0.8*main_height
+infoscreenX0 = (main_width - infoscreenw)/2
+infoscreenY0 = (main_height - infoscreenh)/2
 
 ### Create main page ###
 
 myInfoPage = new PageComponent
 	x: Screen.x
 	y: Screen.y
-	width: Screen.width
-	height: Screen.height
+	width: main_width
+	height: main_height
 	clip: false
 	contentInset:
 		right: 65

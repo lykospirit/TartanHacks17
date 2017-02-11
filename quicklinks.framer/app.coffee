@@ -1,9 +1,19 @@
 {TextLayer} = require 'TextLayer'
 
+# Set background color
+Screen.backgroundColor = "#AAEEFF"
+
+main_width = Screen.width
+main_height = Screen.height
+	
+#Create the background	
+quicklinks_background = new BackgroundLayer 
+	x:Align.centerX
+	y: Align.centerY
+	image: "images/CMU-Tartan-Digital.png"
+
 ### Initialize numbers ###
 
-fwidth = Framer.Device.screen.width
-fheight = Framer.Device.screen.height
 textsize = 45
 linksborderRadius = 15
 linksscreenw = 0.9*Screen.width
@@ -136,22 +146,22 @@ mapimage.onClick (event, layer) ->
 	MapBG.visible = true 
 	MapBG.animate
 		properties:
-			scale: fwidth / mapw
-			midX: fwidth/2
-			midY: fheight/2
+			scale: main_width / mapw
+			midX: main_width/2
+			midY: main_height/2
 			borderRadius:0
 			curve: "spring(400, 30, 20)"
 	MapBG.parent = null
-	MapBG.width = mapw*(fheight/maph)
-	MapBG.height = fheight
+	MapBG.width = mapw*(main_height/maph)
+	MapBG.height = main_height
 	MapBG.centerX()
 	MapBG.centerY()
 	MapBG.draggable.enabled = true
 	MapBG.draggable.constraints =
-		x: -(MapBG.width-fwidth)
-		y: -(MapBG.height-fheight)
-		width: (MapBG.width*2)-fwidth
-		height: (MapBG.height*2)-fheight
+		x: -(MapBG.width-main_width)
+		y: -(MapBG.height-main_height)
+		width: (MapBG.width*2)-main_width
+		height: (MapBG.height*2)-main_height
 
 	MapBG.pinchable.maxScale = 5
 	MapBG.pinchable.enabled = true
@@ -194,22 +204,22 @@ printimage.onClick (event, layer) ->
 	PrintBG.visible = true 
 	PrintBG.animate
 		properties:
-			scale: fwidth / printw
-			midX: fwidth/2
-			midY: fheight/2
+			scale: main_width / printw
+			midX: main_width/2
+			midY: main_height/2
 			borderRadius:0
 			curve: "spring(400, 30, 20)"
 	PrintBG.parent = null
-	PrintBG.width = printw*(fheight/printh)
-	PrintBG.height = fheight
+	PrintBG.width = printw*(main_height/printh)
+	PrintBG.height = main_height
 	PrintBG.centerX()
 	PrintBG.centerY()
 	PrintBG.draggable.enabled = true
 	PrintBG.draggable.constraints =
-		x: -(PrintBG.width-fwidth)
-		y: -(PrintBG.height-fheight)
-		width: (PrintBG.width*2)-fwidth
-		height: (PrintBG.height*2)-fheight
+		x: -(PrintBG.width-main_width)
+		y: -(PrintBG.height-main_height)
+		width: (PrintBG.width*2)-main_width
+		height: (PrintBG.height*2)-main_height
 
 	PrintBG.pinchable.maxScale = 5
 	PrintBG.pinchable.enabled = true
