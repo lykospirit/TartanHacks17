@@ -303,7 +303,7 @@ printingname = new TextLayer
     parent: campuslife5
     x: 0.8*(campuslifeX0 + campuslifeborder)
     y: 0.03*campuslifeh
-    text: "Printing and PlaidCash"
+    text: "Printing and Plaid Cash"
     color: "#000"
     textAlign: "left"
     fontSize: 80
@@ -318,7 +318,7 @@ printquotalabels = new TextLayer
     text: '''Print Quota
     (Current Semester)
     
-    PlaidCash'''
+    Plaid Cash'''
     color: "#000"
     textAlign: "left"
     fontSize: textsize
@@ -338,4 +338,77 @@ printquotatrue = new TextLayer
     textAlign: "left"
     fontSize: textsize
     width: campuslifew - 2 * campuslifeborder
+    fontFamily: "OpenSans"
+
+### TURN TARTAN OVERNIGHT ###
+
+campuslife6 = new Layer
+	parent: campuslifepage.content
+	x: 11*campuslifeborder + 5*campuslifew + campuslifeX0
+	y: campuslifeY0
+	width: campuslifew
+	height: campuslifeh
+	backgroundColor: "#FFF"
+	borderRadius: campuslifeborder
+
+aoaname = new TextLayer
+    parent: campuslife6
+    x: 0.8*(campuslifeX0 + campuslifeborder)
+    y: 0.03*campuslifeh
+    text: "Admissions Overnight Ambassador"
+    color: "#000"
+    textAlign: "left"
+    fontSize: 80
+    width: campuslifew - 2 * campuslifeborder
+    height: 100
+    fontFamily: "OpenSans-bold" 
+
+ttolabel = new TextLayer
+    parent: campuslife6
+    x: housingname.x
+    y: 0.03*campuslifeh + 250
+    text: '''You are registered for:
+    
+    Turn Tartan Overnight'''
+    color: "#000"
+    textAlign: "left"
+    fontSize: 45
+    width: campuslifew - 2 * campuslifeborder
+    height: textsize*1.5
+    fontFamily: "OpenSans-bold"
+
+ttotrue = new TextLayer
+    parent: campuslife6
+    x: housingname.x
+    y: ttolabel.y + 195
+    text: '''February 12 - February 13'''
+    color: "#000"
+    textAlign: "left"
+    fontSize: 45
+    width: campuslifew - 2 * campuslifeborder
+    height: textsize*1.5
+    fontFamily: "OpenSans"
+
+codlabel = new TextLayer
+    parent: campuslife6
+    x: housingname.x
+    y: ttotrue.y + 125
+    text: '''Celebration of Diversity'''
+    color: "#000"
+    textAlign: "left"
+    fontSize: 45
+    width: campuslifew - 2 * campuslifeborder
+    height: textsize*1.5
+    fontFamily: "OpenSans-bold"
+
+codtrue = new TextLayer
+    parent: campuslife6
+    x: housingname.x
+    y: codlabel.y + 80
+    text: '''You are not registered for any events.'''
+    color: "#000"
+    textAlign: "left"
+    fontSize: 45
+    width: campuslifew - 2 * campuslifeborder
+    height: textsize*1.5
     fontFamily: "OpenSans"
