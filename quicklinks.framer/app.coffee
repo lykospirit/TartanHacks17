@@ -95,7 +95,7 @@ linksname = new TextLayer
     parent: campusmapscreen
     x: 0.8*(linksscreenX0 + linksborderRadius)
     y: 0.03*linksscreenh
-    text: "Campus Map"
+    text: "Campus Maps"
     color: "#000"
     textAlign: "left"
     fontSize: 80
@@ -103,7 +103,7 @@ linksname = new TextLayer
     height: 100
     fontFamily: "OpenSans-bold"
 
-image = new Layer
+mapimage = new Layer
 	parent: campusmapscreen
 	x: 0.8*(linksscreenX0 + linksborderRadius)
 	y: 0.03*linksscreenh + 150
@@ -118,67 +118,55 @@ image = new Layer
 fwidth = Framer.Device.screen.width
 fheight = Framer.Device.screen.height
 
-# BG
-
-mapfullscreen = new Layer
-	backgroundColor: "#252a30"
-	width: fwidth*2
-	height: fheight*2
-	z:-350
-	visible: false
-mapfullscreen.centerX()
-mapfullscreen.centerY()
-
-# Map
-
-MapBG=new Layer
-	parent: mapfullscreen
-	width: 3459
-	height: 3665
-	image: "images/CMUmap.png"
-	z:-250
-
-MapBG.centerX()
-MapBG.centerY()
-MapBG.draggable.enabled = true
-MapBG.draggable.constraints =
-	x:-(MapBG.width-fwidth)
-	y:-(MapBG.height-fheight)
-	width: (MapBG.width*2)-fwidth
-	height: (MapBG.height*2)-fheight
-
-MapBG.pinchable.maxScale = 3
-MapBG.pinchable.enabled = true
-MapBG.pinchable.rotate = false
-
-MapBG.onScaleEnd ->
-	MapBG.animate
-		properties:
-			scale:1
-
-# UI
-
-UiLayer = new Layer
-	parent: mapfullscreen
-	width: fwidth
-	height: fheight
-	backgroundColor: "transparent"
-	image: "images/CMUmap.png"
-
-UiLayer.ignoreEvents=true
-
-# Map Events and Interactive States
-
-MapBG.states.add
-	focus:
-		x:-1301
-		y:-965
-
-MapBG.states.animationOptions=
-	delay:0.5
-
 ### WHEN TAPPED THE FULLSCREEN SHOULD APPEAR ###
 
-image.onTap ->
-	print "tap"
-	mapfullscreen.visible = true
+mapimage.onClick (event, layer) ->
+	layer.visible = false
+	MapBG = layer.copy()
+	MapBG.parent = null
+	MapBG.frame = layer.screenFrame
+	MapBG.width = 3296
+	MapBG.height = 2302
+	# Ignore events and show the image
+	MapBG.ignoreEvents
+	MapBG.visible = true 
+	MapBG.animate
+		properties:
+			scale: fwidth / MapBG.width
+			midY: fheight / 2
+			midX: fwidth / 2
+			y: fheight - MapBG.height/2
+			borderRadius:0
+			curve: "spring(400, 30, 20)"
+	MapBG.centerX()
+	MapBG.centerY()
+	MapBG.draggable.enabled = true
+	MapBG.draggable.constraints =
+		x:-(MapBG.width-fwidth)
+		y:-(MapBG.height-fheight)
+		width: (MapBG.width*2)-fwidth
+		height: (MapBG.height*2)-fheight
+
+	MapBG.pinchable.maxScale = 3
+	MapBG.pinchable.enabled = true
+	MapBG.pinchable.rotate = true
+	
+	MapBG.onScaleEnd ->
+		MapBG.animate
+			properties:
+				scale:1
+
+	mylinksPage.visible = false
+	MapBG.onDoubleClick (event, layer) ->
+		MapBG.visible = false
+		mylinksPage.visible = true
+		mapimage.visible = true
+		MapBG.animate
+			properties:
+				scale: 0.2
+				x: mapimage.x
+				y: mapimage.y
+				width: mapimage.width
+				height: mapimage.height
+				curve: "spring(400, 30, 20)"
+
