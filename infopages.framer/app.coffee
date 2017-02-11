@@ -30,7 +30,7 @@ infoscreen1 = new Layer
 	width: infoscreenw
 	height: infoscreenh
 	backgroundColor: "#FFF"
-	infoborderRadius: infoborderRadius
+	borderRadius: infoborderRadius
 
 infoname1 = new TextLayer
     parent: infoscreen1
@@ -179,7 +179,7 @@ infoscreen2 = new Layer #screens.secondScreen
 	width: infoscreenw
 	height: infoscreenh
 	backgroundColor: "#FFF"
-	infoborderRadius: infoborderRadius
+	borderRadius: infoborderRadius
 
 infoname2 = new TextLayer
     parent: infoscreen2
@@ -246,7 +246,7 @@ infoscreen3 = new Layer
 	width: infoscreenw
 	height: infoscreenh
 	backgroundColor: "#FFF"
-	infoborderRadius: infoborderRadius
+	borderRadius: infoborderRadius
 	
 infoname3 = new TextLayer
     parent: infoscreen3
@@ -296,7 +296,7 @@ infoscreen4 = new Layer #screens.secondScreen
 	width: infoscreenw
 	height: infoscreenh
 	backgroundColor: "#FFF"
-	infoborderRadius: infoborderRadius
+	borderRadius: infoborderRadius
 	
 infoname4 = new TextLayer
     parent: infoscreen4
