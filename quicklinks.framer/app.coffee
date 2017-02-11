@@ -1,5 +1,17 @@
 {TextLayer} = require 'TextLayer'
 
+# Set background color
+Screen.backgroundColor = "#AAEEFF"
+
+main_width = Screen.width
+main_height = Screen.height
+	
+#Create the background	
+quicklinks_background = new BackgroundLayer 
+	x:Align.centerX
+	y: Align.centerY
+	image: "images/CMU-Tartan-Digital.png"
+
 ### Initialize numbers ###
 
 textsize = 45
@@ -95,7 +107,7 @@ linksname = new TextLayer
     parent: campusmapscreen
     x: 0.8*(linksscreenX0 + linksborderRadius)
     y: 0.03*linksscreenh
-    text: "Campus Map"
+    text: "Campus Maps"
     color: "#000"
     textAlign: "left"
     fontSize: 80
@@ -103,7 +115,7 @@ linksname = new TextLayer
     height: 100
     fontFamily: "OpenSans-bold"
 
-image = new Layer
+mapimage = new Layer
 	parent: campusmapscreen
 	x: 0.8*(linksscreenX0 + linksborderRadius)
 	y: 0.03*linksscreenh + 150
@@ -111,74 +123,128 @@ image = new Layer
 	width: linksscreenw - (10 * linksborderRadius)
 	height: 800
 
+printimage = new Layer
+	parent: campusmapscreen
+	x: 0.8*(linksscreenX0 + linksborderRadius)
+	y: mapimage.height + 0.03*linksscreenh + 250
+	image: "images/printmap.png"
+	width: linksscreenw - (10 * linksborderRadius)
+	height: 800
+
 ### CAMPUS MAP FULLSCREEN ###
-
-# Set Up
-
-fwidth = Framer.Device.screen.width
-fheight = Framer.Device.screen.height
-
-# BG
-
-mapfullscreen = new Layer
-	backgroundColor: "#252a30"
-	width: fwidth*2
-	height: fheight*2
-	z:-350
-	visible: false
-mapfullscreen.centerX()
-mapfullscreen.centerY()
-
-# Map
-
-MapBG=new Layer
-	parent: mapfullscreen
-	width: 3459
-	height: 3665
-	image: "images/CMUmap.png"
-	z:-250
-
-MapBG.centerX()
-MapBG.centerY()
-MapBG.draggable.enabled = true
-MapBG.draggable.constraints =
-	x:-(MapBG.width-fwidth)
-	y:-(MapBG.height-fheight)
-	width: (MapBG.width*2)-fwidth
-	height: (MapBG.height*2)-fheight
-
-MapBG.pinchable.maxScale = 3
-MapBG.pinchable.enabled = true
-MapBG.pinchable.rotate = false
-
-MapBG.onScaleEnd ->
-	MapBG.animate
-		properties:
-			scale:1
-
-# UI
-
-UiLayer = new Layer
-	parent: mapfullscreen
-	width: fwidth
-	height: fheight
-	backgroundColor: "transparent"
-	image: "images/CMUmap.png"
-
-UiLayer.ignoreEvents=true
-
-# Map Events and Interactive States
-
-MapBG.states.add
-	focus:
-		x:-1301
-		y:-965
-
-MapBG.states.animationOptions=
-	delay:0.5
 
 ### WHEN TAPPED THE FULLSCREEN SHOULD APPEAR ###
 
-image.onTap ->
-	print "tap"
-	mapfullscreen.visible = true
+mapimage.onClick (event, layer) ->
+	mapw = 3296
+	maph = 2302
+	layer.visible = false
+	MapBG = layer.copy()
+	MapBG.frame = layer.screenFrame
+	MapBG.bringToFront()
+	# Ignore events and show the image
+	MapBG.visible = true 
+	MapBG.animate
+		properties:
+			scale: main_width / mapw
+			midX: main_width/2
+			midY: main_height/2
+			borderRadius:0
+			curve: "spring(400, 30, 20)"
+	MapBG.parent = null
+	MapBG.width = mapw*(main_height/maph)
+	MapBG.height = main_height
+	MapBG.centerX()
+	MapBG.centerY()
+	MapBG.draggable.enabled = true
+	MapBG.draggable.constraints =
+		x: -(MapBG.width-main_width)
+		y: -(MapBG.height-main_height)
+		width: (MapBG.width*2)-main_width
+		height: (MapBG.height*2)-main_height
+
+	MapBG.pinchable.maxScale = 5
+	MapBG.pinchable.enabled = true
+	MapBG.pinchable.rotate = false
+	
+	MapBG.onScaleEnd ->
+		MapBG.animate
+			properties:
+				scale: 1
+
+	mylinksPage.visible = false
+	campusmapscreen.visible = false
+	quicklinksscreen.visible = false
+	MapBG.onDoubleClick (event, layer) ->
+		mylinksPage.visible = true
+		campusmapscreen.visible = true
+		quicklinksscreen.visible = true
+		layer.animate
+			properties:
+				x: mapimage.x
+				y: mapimage.y
+				width: mapimage.width
+				height: mapimage.height
+				curve: "spring(400, 30, 20)"
+		mapimage.visible = true
+		layer.visible = false
+
+### PRINT MAP FULLSCREEN ###
+
+### WHEN TAPPED THE FULLSCREEN SHOULD APPEAR ###
+
+printimage.onClick (event, layer) ->
+	printw = 2550
+	printh = 1800
+	layer.visible = false
+	PrintBG = layer.copy()
+	PrintBG.frame = layer.screenFrame
+	PrintBG.bringToFront()
+	# Ignore events and show the image
+	PrintBG.visible = true 
+	PrintBG.animate
+		properties:
+			scale: main_width / printw
+			midX: main_width/2
+			midY: main_height/2
+			borderRadius:0
+			curve: "spring(400, 30, 20)"
+	PrintBG.parent = null
+	PrintBG.width = printw*(main_height/printh)
+	PrintBG.height = main_height
+	PrintBG.centerX()
+	PrintBG.centerY()
+	PrintBG.draggable.enabled = true
+	PrintBG.draggable.constraints =
+		x: -(PrintBG.width-main_width)
+		y: -(PrintBG.height-main_height)
+		width: (PrintBG.width*2)-main_width
+		height: (PrintBG.height*2)-main_height
+
+	PrintBG.pinchable.maxScale = 5
+	PrintBG.pinchable.enabled = true
+	PrintBG.pinchable.rotate = false
+	
+	PrintBG.onScaleEnd ->
+		PrintBG.animate
+			properties:
+				scale: 1
+
+	mylinksPage.visible = false
+	campusmapscreen.visible = false
+	quicklinksscreen.visible = false
+	PrintBG.onDoubleClick (event, layer) ->
+		mylinksPage.visible = true
+		campusmapscreen.visible = true
+		quicklinksscreen.visible = true
+		layer.animate
+			properties:
+				x: printimage.x
+				y: printimage.y
+				width: printimage.width
+				height: printimage.height
+				curve: "spring(400, 30, 20)"
+		printimage.visible = true
+		layer.visible = false
+
+
