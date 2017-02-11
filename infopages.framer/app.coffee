@@ -1,11 +1,15 @@
 {TextLayer} = require 'TextLayer'
 
+### Initialize numbers ###
+
 textsize = 45
 infoborderRadius = 15
 infoscreenw = 0.9*Screen.width
 infoscreenh = 0.8*Screen.height
 infoscreenX0 = (Screen.width - infoscreenw)/2
 infoscreenY0 = (Screen.height - infoscreenh)/2
+
+### Create main page ###
 
 myInfoPage = new PageComponent
 	x: Screen.x
@@ -17,7 +21,9 @@ myInfoPage = new PageComponent
 		right: 65
 myInfoPage.draggable.enabled = false
 
-infoscreen1 = new Layer #screens.firstScreen
+### INFO SCREEN 1 ###
+
+infoscreen1 = new Layer
 	parent: myInfoPage.content
 	x: infoscreenX0
 	y: infoscreenY0
@@ -163,7 +169,9 @@ campustrue = new TextLayer
     fontSize: textsize
     width: infoscreenw - 2 * infoborderRadius
     fontFamily: "OpenSans"
-    
+
+### INFO SCREEN 2 ###
+
 infoscreen2 = new Layer #screens.secondScreen
 	parent: myInfoPage.content
 	x: 3*infoborderRadius + infoscreenw + infoscreenX0
@@ -207,6 +215,7 @@ idlabels = new TextLayer
     x: infoname2.x
     y: iddescription.y + iddescription.height
     text: '''Student ID number
+    
     Card ID'''
     color: "#000"
     textAlign: "left"
@@ -220,6 +229,7 @@ idtrue = new TextLayer
     x: infoscreen2.width/2
     y: iddescription.y + iddescription.height
     text: '''123456789
+    
     876543210'''
     color: "#000"
     textAlign: "left"
@@ -227,7 +237,9 @@ idtrue = new TextLayer
     width: infoscreenw - 2 * infoborderRadius
     fontFamily: "OpenSans"
 
-infoscreen3 = new Layer #screens.secondScreen
+### INFO SCREEN 3 ###
+
+infoscreen3 = new Layer
 	parent: myInfoPage.content
 	x: 5*infoborderRadius + 2*infoscreenw + infoscreenX0
 	y: infoscreenY0
@@ -253,12 +265,13 @@ smclabels = new TextLayer
     x: infoname3.x
     y: 0.03*infoscreenh + 150
     text: '''SMC Mailbox Number
+    
     Combination'''
     color: "#000"
     textAlign: "left"
     fontSize: textsize
     width: infoscreenw - 2 * infoborderRadius
-    height: (infoscreen2.height - infoname2.height)*0.15
+    height: (infoscreen3.height - infoname3.height)*0.15
     fontFamily: "OpenSans-bold"
 
 smctrue = new TextLayer
@@ -266,7 +279,73 @@ smctrue = new TextLayer
     x: infoscreen3.width/2
     y: 0.03*infoscreenh + 150
     text: '''0000
+    
     00-01-02'''
+    color: "#000"
+    textAlign: "left"
+    fontSize: textsize
+    width: infoscreenw - 2 * infoborderRadius
+    fontFamily: "OpenSans"
+
+### INFO SCREEN 4 ###
+
+infoscreen4 = new Layer #screens.secondScreen
+	parent: myInfoPage.content
+	x: 7*infoborderRadius + 3*infoscreenw + infoscreenX0
+	y: infoscreenY0
+	width: infoscreenw
+	height: infoscreenh
+	backgroundColor: "#FFF"
+	infoborderRadius: infoborderRadius
+	
+infoname4 = new TextLayer
+    parent: infoscreen4
+    x: 0.8*(infoscreenX0 + infoborderRadius)
+    y: 0.03*infoscreenh
+    text: "Useful Contacts"
+    color: "#000"
+    textAlign: "left"
+    fontSize: 80
+    width: infoscreenw - 2 * infoborderRadius
+    height: 100
+    fontFamily: "OpenSans-bold" 
+
+contactlabels = new TextLayer
+    parent: infoscreen4
+    x: infoname4.x
+    y: 0.03*infoscreenh + 150
+    text: '''Academic Advisor
+    
+    
+    Associate Dean
+    
+    
+    Hub Liaison
+    
+    
+    Student Affairs Contact'''
+    color: "#000"
+    textAlign: "left"
+    fontSize: textsize
+    width: infoscreenw - 2 * infoborderRadius
+    height: (infoscreen4.height - infoname4.height)*0.15
+    fontFamily: "OpenSans-bold"
+
+contacttrue = new TextLayer
+    parent: infoscreen4
+    x: infoscreen4.width/2
+    y: 0.03*infoscreenh + 150
+    text: '''Andrew Carnegie
+    acarnegie, 123-4567
+    
+    Andrew Carnegie
+    acarnegie, 123-4567
+    
+    Andrew Carnegie
+    acarnegie, 123-4567
+    
+    Andrew Carnegie
+    acarnegie, 123-4567'''
     color: "#000"
     textAlign: "left"
     fontSize: textsize
