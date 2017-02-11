@@ -251,7 +251,7 @@ idtrue = new TextLayer
 
 ### INFO SCREEN 3 ###
 
-infoscreen3 = new Layer
+infoscreen3 = new Layer #screens.secondScreen
 	parent: myInfoPage.content
 	x: 5*infoborderRadius + 2*infoscreenw + infoscreenX0
 	y: infoscreenY0
@@ -260,58 +260,8 @@ infoscreen3 = new Layer
 	backgroundColor: "#FFF"
 	borderRadius: infoborderRadius
 	
-infoname3 = new TextLayer
-    parent: infoscreen3
-    x: 0.8*(infoscreenX0 + infoborderRadius)
-    y: 0.03*infoscreenh
-    text: "SMC Mailbox & Combination"
-    color: "#000"
-    textAlign: "left"
-    fontSize: 80
-    width: infoscreenw - 2 * infoborderRadius
-    height: 100
-    fontFamily: "OpenSans-bold" 
-
-smclabels = new TextLayer
-    parent: infoscreen3
-    x: infoname3.x
-    y: 0.03*infoscreenh + 150
-    text: '''SMC Mailbox Number
-    
-    Combination'''
-    color: "#000"
-    textAlign: "left"
-    fontSize: textsize
-    width: infoscreenw - 2 * infoborderRadius
-    height: (infoscreen3.height - infoname3.height)*0.15
-    fontFamily: "OpenSans-bold"
-
-smctrue = new TextLayer
-    parent: infoscreen3
-    x: infoscreen3.width/2
-    y: 0.03*infoscreenh + 150
-    text: '''0000
-    
-    00-01-02'''
-    color: "#000"
-    textAlign: "left"
-    fontSize: textsize
-    width: infoscreenw - 2 * infoborderRadius
-    fontFamily: "OpenSans"
-
-### INFO SCREEN 4 ###
-
-infoscreen4 = new Layer #screens.secondScreen
-	parent: myInfoPage.content
-	x: 7*infoborderRadius + 3*infoscreenw + infoscreenX0
-	y: infoscreenY0
-	width: infoscreenw
-	height: infoscreenh
-	backgroundColor: "#FFF"
-	borderRadius: infoborderRadius
-	
 infoname4 = new TextLayer
-    parent: infoscreen4
+    parent: infoscreen3
     x: 0.8*(infoscreenX0 + infoborderRadius)
     y: 0.03*infoscreenh
     text: "Useful Contacts"
@@ -323,7 +273,7 @@ infoname4 = new TextLayer
     fontFamily: "OpenSans-bold" 
 
 contactlabels = new TextLayer
-    parent: infoscreen4
+    parent: infoscreen3
     x: infoname4.x
     y: 0.03*infoscreenh + 150
     text: '''Academic Advisor
@@ -340,12 +290,12 @@ contactlabels = new TextLayer
     textAlign: "left"
     fontSize: textsize
     width: infoscreenw - 2 * infoborderRadius
-    height: (infoscreen4.height - infoname4.height)*0.15
+    height: (infoscreen3.height - infoname4.height)*0.15
     fontFamily: "OpenSans-bold"
 
 contacttrue = new TextLayer
-    parent: infoscreen4
-    x: infoscreen4.width/2
+    parent: infoscreen3
+    x: infoscreen3.width/2
     y: 0.03*infoscreenh + 150
     text: '''Andrew Carnegie
     acarnegie, 123-4567

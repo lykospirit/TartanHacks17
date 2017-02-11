@@ -15,15 +15,15 @@ quicklinks_background = new BackgroundLayer
 ### Initialize numbers ###
 
 textsize = 45
-infoborderRadius = 15
-infoscreenw = 0.9*main_width
-infoscreenh = 0.8*main_height
-infoscreenX0 = (main_width - infoscreenw)/2
-infoscreenY0 = (main_height - infoscreenh)/2
+campuslifeborder = 15
+campuslifew = 0.9*main_width
+campuslifeh = 0.8*main_height
+campuslifeX0 = (main_width - campuslifew)/2
+campuslifeY0 = (main_height - campuslifeh)/2
 
 ### Create main page ###
 
-myInfoPage = new PageComponent
+campuslifepage = new PageComponent
 	x: Screen.x
 	y: Screen.y
 	width: main_width
@@ -31,335 +31,311 @@ myInfoPage = new PageComponent
 	clip: false
 	contentInset:
 		right: 65
-myInfoPage.draggable.enabled = false
+campuslifepage.draggable.enabled = false
 
-### INFO SCREEN 1 ###
+### HOUSING AND DINING PLANS ###
 
-infoscreen1 = new Layer
-	parent: myInfoPage.content
-	x: infoscreenX0
-	y: infoscreenY0
-	width: infoscreenw
-	height: infoscreenh
+campuslife1 = new Layer
+	parent: campuslifepage.content
+	x: campuslifeX0
+	y: campuslifeY0
+	width: campuslifew
+	height: campuslifeh
 	backgroundColor: "#FFF"
-	borderRadius: infoborderRadius
+	borderRadius: campuslifeborder
 
-infoname1 = new TextLayer
-    parent: infoscreen1
-    x: 0.8*(infoscreenX0 + infoborderRadius)
-    y: 0.03*infoscreenh
-    text: "View and Update My Info"
+housingname = new TextLayer
+    parent: campuslife1
+    x: 0.8*(campuslifeX0 + campuslifeborder)
+    y: 0.03*campuslifeh
+    text: "Housing Assignment"
     color: "#000"
     textAlign: "left"
     fontSize: 80
-    width: infoscreenw - 2 * infoborderRadius
+    width: campuslifew - 2 * campuslifeborder
     height: 100
     fontFamily: "OpenSans-bold"
 
-infolabels = new TextLayer
-    parent: infoscreen1
-    x: infoname1.x
-    y: 0.03*infoscreenh + 150
-    text: '''Name
-    Preferred Name
-    Race/Ethnicity
-    Gender
-    Birth Date
-    Directory Release
-    Mobile Phone
-    Carrier
-    Email
-    Personal Email
-    US Citizen
-    F1/J1 Student Status
-    Fraternity
-    Athletics
-    VA Benefits
+currenthousinglabel = new TextLayer
+    parent: campuslife1
+    x: housingname.x
+    y: 0.03*campuslifeh + 150
+    text: '''Current Semester - Spring 2017'''
+    color: "#000"
+    textAlign: "left"
+    fontSize: 45
+    width: campuslifew - 2 * campuslifeborder
+    height: textsize*1.5
+    fontFamily: "OpenSans-bold"
+
+currenthousinglabels = new TextLayer
+    parent: campuslife1
+    x: housingname.x
+    y: currenthousinglabel.y + currenthousinglabel.height + 20
+    text: '''Location
+    Room Type
+    Semester Cost
+    Roommate
     '''
     color: "#000"
     textAlign: "left"
     fontSize: textsize
-    width: infoscreenw - 2 * infoborderRadius
-    height: (infoscreen1.height - infoname1.height)*0.47
+    width: campuslifew - 2 * campuslifeborder
+    height: 300
     fontFamily: "OpenSans-bold"
 
-infotrue = new TextLayer
-    parent: infoscreen1
-    x: infoscreen1.width/2
-    y: 0.03*infoscreenh + 150
-    text: '''Andrew Carnegie
-    Mellon
-    White
-    Male
-    25 Nov 1835
-    Yes
-    412-123-4567
-    Pigeons
-    acarnegie@andrew.cmu
-    andrew@gmail.com
-    Yes
-    N/A
-    CMU
-    Hackathons
-    No
-    '''
+currenthousingtrue = new TextLayer
+    parent: campuslife1
+    x: campuslife1.width/2
+    y: currenthousinglabel.y + currenthousinglabel.height + 20
+    text: '''Resnik House
+    Standard Double
+    $3000.00
+    Subra Suresh (ssures)'''
     color: "#000"
     textAlign: "left"
     fontSize: textsize
-    width: infoscreenw - 2 * infoborderRadius
+    width: campuslifew - 2 * campuslifeborder
+    height: 300
     fontFamily: "OpenSans"
 
-permaddresslabel = new TextLayer
-    parent: infoscreen1
-    x: infolabels.x
-    y: infolabels.y + infolabels.height
-    text: '''Permanent address'''
+futurehousinglabel = new TextLayer
+    parent: campuslife1
+    x: currenthousinglabels.x
+    y: currenthousinglabels.y + currenthousinglabels.height
+    text: '''Future Semesters'''
     color: "#000"
     textAlign: "left"
     fontSize: 45
-    width: infoscreenw - 2 * infoborderRadius
-    height: textsize*1.5
-    fontFamily: "OpenSans-bold"
-
-permaddresstrue = new TextLayer
-    parent: infoscreen1
-    x: infolabels.x
-    y: permaddresslabel.y + permaddresslabel.height
-    text: '''5032 Forbes Avenue
-    Pittsburgh, PA 15289'''
-    color: "#000"
-    textAlign: "left"
-    fontSize: textsize
-    width: infoscreenw - 2 * infoborderRadius
-    height: textsize*4
-    fontFamily: "OpenSans"
-
-offcampuslabel = new TextLayer
-    parent: infoscreen1
-    x: infolabels.x
-    y: permaddresstrue.y + permaddresstrue.height
-    text: '''Off Campus Residence'''
-    color: "#000"
-    textAlign: "left"
-    fontSize: 45
-    width: infoscreenw - 2 * infoborderRadius
-    height: textsize*1.5
-    fontFamily: "OpenSans-bold"
-
-offcampustrue = new TextLayer
-    parent: infoscreen1
-    x: infolabels.x
-    y: offcampuslabel.y + offcampuslabel.height
-    text: '''5140 Forbes Avenue
-    Pittsburgh, PA 15289'''
-    color: "#000"
-    textAlign: "left"
-    fontSize: textsize
-    width: infoscreenw - 2 * infoborderRadius
-    fontFamily: "OpenSans"
-
-campuslabel = new TextLayer
-    parent: infoscreen1
-    x: infolabels.x
-    y: offcampustrue.y + offcampustrue.height
-    text: '''Campus Address'''
-    color: "#000"
-    textAlign: "left"
-    fontSize: 45
-    width: infoscreenw - 2 * infoborderRadius
+    width: campuslifew - 2 * campuslifeborder
     height: textsize*1.5
     fontFamily: "OpenSans-bold"
 
 campustrue = new TextLayer
-    parent: infoscreen1
-    x: infolabels.x
-    y: campuslabel.y + campuslabel.height
-    text: '''5032 Forbes Avenue SMC 0000
-    Pittsburgh, PA 15289-0000'''
+    parent: campuslife1
+    x: currenthousinglabels.x
+    y: futurehousinglabel.y + futurehousinglabel.height + 20
+    text: '''You are not assigned to a campus residence hall in
+    the next semester.'''
     color: "#000"
     textAlign: "left"
     fontSize: textsize
-    width: infoscreenw - 2 * infoborderRadius
+    width: campuslifew - 2 * campuslifeborder
     fontFamily: "OpenSans"
 
-### INFO SCREEN 2 ###
+### MEAL PLAN ASSIGNMENT ###
 
-infoscreen2 = new Layer #screens.secondScreen
-	parent: myInfoPage.content
-	x: 3*infoborderRadius + infoscreenw + infoscreenX0
-	y: infoscreenY0
-	width: infoscreenw
-	height: infoscreenh
+campuslife2 = new Layer #screens.secondScreen
+	parent: campuslifepage.content
+	x: 3*campuslifeborder + campuslifew + campuslifeX0
+	y: campuslifeY0
+	width: campuslifew
+	height: campuslifeh
 	backgroundColor: "#FFF"
-	borderRadius: infoborderRadius
+	borderRadius: campuslifeborder
 
-infoname2 = new TextLayer
-    parent: infoscreen2
-    x: 0.8*(infoscreenX0 + infoborderRadius)
-    y: 0.03*infoscreenh
-    text: "Student ID & Card ID"
+mealplanname = new TextLayer
+    parent: campuslife2
+    x: 0.8*(campuslifeX0 + campuslifeborder)
+    y: 0.03*campuslifeh
+    text: "Meal Plan Assignment"
     color: "#000"
     textAlign: "left"
     fontSize: 80
-    width: infoscreenw - 2 * infoborderRadius
-    height: (infoscreen2.height)*0.15
+    width: campuslifew - 2 * campuslifeborder
+    height: 100
     fontFamily: "OpenSans-bold" 
 
-iddescription = new TextLayer
-    parent: infoscreen2
-    x: infoname2.x
-    y: 0.03*infoscreenh + 150
-    text: '''If you believe your Student ID number is incorrect,
-    you can submit a Student ID Number Change Form
-    (http://www.cmu.edu/hub/registration/docs/id-
-    change.pdf) to The HUB. You will need official
-    documentation to make this change.
-    '''
-    color: "#000"
-    textAlign: "left"
-    fontSize: textsize
-    width: infoscreenw - 2 * infoborderRadius
-    height: (infoscreen2.height - infoname2.height)*0.2
-    fontFamily: "OpenSans"
-
-idlabels = new TextLayer
-    parent: infoscreen2
-    x: infoname2.x
-    y: iddescription.y + iddescription.height
-    text: '''Student ID number
+mealplanlabels = new TextLayer
+    parent: campuslife2
+    x: mealplanname.x
+    y: 0.03*campuslifeh + 150
+    text: '''Red 9 Flex Dollars
     
-    Card ID'''
+Dinextra
+
+DInextra Bonus
+
+9-Red 22 Meals
+
+Red Guest Passes'''
     color: "#000"
     textAlign: "left"
     fontSize: textsize
-    width: infoscreenw - 2 * infoborderRadius
-    height: (infoscreen2.height - infoname2.height)*0.15
+    width: campuslifew - 2 * campuslifeborder
+    height: (campuslife2.height - mealplanname.height)*0.15
     fontFamily: "OpenSans-bold"
 
-idtrue = new TextLayer
-    parent: infoscreen2
-    x: infoscreen2.width/2
-    y: iddescription.y + iddescription.height
-    text: '''123456789
+mealplantrue = new TextLayer
+    parent: campuslife2
+    x: campuslife2.width/2
+    y: 0.03*campuslifeh + 150
+    text: '''$900.00
     
-    876543210'''
+    $0.00
+    
+    $0.00
+    
+    22 meals
+    
+    2 meals'''
     color: "#000"
     textAlign: "left"
     fontSize: textsize
-    width: infoscreenw - 2 * infoborderRadius
+    width: campuslifew - 2 * campuslifeborder
     fontFamily: "OpenSans"
 
-### INFO SCREEN 3 ###
+### DINING OPTIONS ###
 
-infoscreen3 = new Layer
-	parent: myInfoPage.content
-	x: 5*infoborderRadius + 2*infoscreenw + infoscreenX0
-	y: infoscreenY0
-	width: infoscreenw
-	height: infoscreenh
+campuslife3 = new Layer #screens.secondScreen
+	parent: campuslifepage.content
+	x: 5*campuslifeborder + 2*campuslifew + campuslifeX0
+	y: campuslifeY0
+	width: campuslifew
+	height: campuslifeh
 	backgroundColor: "#FFF"
-	borderRadius: infoborderRadius
+	borderRadius: campuslifeborder
+
+diningname = new TextLayer
+    parent: campuslife3
+    x: 0.8*(campuslifeX0 + campuslifeborder)
+    y: 0.03*campuslifeh
+    text: "Dining Options"
+    color: "#000"
+    textAlign: "left"
+    fontSize: 80
+    width: campuslifew - 2 * campuslifeborder
+    height: 100
+    fontFamily: "OpenSans-bold" 
+
+dininglabels = new TextLayer
+    parent: campuslife3
+    x: diningname.x
+    y: 0.03*campuslifeh + 150
+    text: '''<On Campus Dining Options and Operating Hours!!>'''
+    color: "#000"
+    textAlign: "left"
+    fontSize: textsize
+    width: campuslifew - 2 * campuslifeborder
+    height: (campuslife3.height - diningname.height)*0.15
+    fontFamily: "OpenSans-bold"
+
+### MAILBOX AND PACKAGES ###
+
+campuslife4 = new Layer
+	parent: campuslifepage.content
+	x: 7*campuslifeborder + 3*campuslifew + campuslifeX0
+	y: campuslifeY0
+	width: campuslifew
+	height: campuslifeh
+	backgroundColor: "#FFF"
+	borderRadius: campuslifeborder
 	
-infoname3 = new TextLayer
-    parent: infoscreen3
-    x: 0.8*(infoscreenX0 + infoborderRadius)
-    y: 0.03*infoscreenh
+mailboxname = new TextLayer
+    parent: campuslife4
+    x: 0.8*(campuslifeX0 + campuslifeborder)
+    y: 0.03*campuslifeh
     text: "SMC Mailbox & Combination"
     color: "#000"
     textAlign: "left"
     fontSize: 80
-    width: infoscreenw - 2 * infoborderRadius
+    width: campuslifew - 2 * campuslifeborder
     height: 100
     fontFamily: "OpenSans-bold" 
 
 smclabels = new TextLayer
-    parent: infoscreen3
-    x: infoname3.x
-    y: 0.03*infoscreenh + 150
+    parent: campuslife4
+    x: mailboxname.x
+    y: 0.03*campuslifeh + 150
     text: '''SMC Mailbox Number
     
-    Combination'''
+    Combination
+    
+    Number of Packages
+    
+    
+    Package Descriptions'''
     color: "#000"
     textAlign: "left"
     fontSize: textsize
-    width: infoscreenw - 2 * infoborderRadius
-    height: (infoscreen3.height - infoname3.height)*0.15
+    width: campuslifew - 2 * campuslifeborder
+    height: 620
     fontFamily: "OpenSans-bold"
 
 smctrue = new TextLayer
-    parent: infoscreen3
-    x: infoscreen3.width/2
-    y: 0.03*infoscreenh + 150
+    parent: campuslife4
+    x: campuslife4.width/2
+    y: 0.03*campuslifeh + 150
     text: '''0000
     
-    00-01-02'''
+    00-01-02
+    
+    0'''
     color: "#000"
     textAlign: "left"
     fontSize: textsize
-    width: infoscreenw - 2 * infoborderRadius
+    width: campuslifew - 2 * campuslifeborder
     fontFamily: "OpenSans"
 
-### INFO SCREEN 4 ###
+packagedescriptions = new TextLayer
+    parent: campuslife4
+    x: smclabels.x
+    y: smclabels.x + smclabels.height
+    text: '''You have no packages.'''
+    color: "#000"
+    textAlign: "left"
+    fontSize: textsize
+    width: campuslifew - 2 * campuslifeborder
+    fontFamily: "OpenSans"
 
-infoscreen4 = new Layer #screens.secondScreen
-	parent: myInfoPage.content
-	x: 7*infoborderRadius + 3*infoscreenw + infoscreenX0
-	y: infoscreenY0
-	width: infoscreenw
-	height: infoscreenh
+### PRINTING AND PLAIDCASH ###
+
+campuslife5 = new Layer
+	parent: campuslifepage.content
+	x: 9*campuslifeborder + 4*campuslifew + campuslifeX0
+	y: campuslifeY0
+	width: campuslifew
+	height: campuslifeh
 	backgroundColor: "#FFF"
-	borderRadius: infoborderRadius
+	borderRadius: campuslifeborder
 	
-infoname4 = new TextLayer
-    parent: infoscreen4
-    x: 0.8*(infoscreenX0 + infoborderRadius)
-    y: 0.03*infoscreenh
-    text: "Useful Contacts"
+printingname = new TextLayer
+    parent: campuslife5
+    x: 0.8*(campuslifeX0 + campuslifeborder)
+    y: 0.03*campuslifeh
+    text: "Printing and PlaidCash"
     color: "#000"
     textAlign: "left"
     fontSize: 80
-    width: infoscreenw - 2 * infoborderRadius
+    width: campuslifew - 2 * campuslifeborder
     height: 100
     fontFamily: "OpenSans-bold" 
 
-contactlabels = new TextLayer
-    parent: infoscreen4
-    x: infoname4.x
-    y: 0.03*infoscreenh + 150
-    text: '''Academic Advisor
+printquotalabels = new TextLayer
+    parent: campuslife5
+    x: printingname.x
+    y: 0.03*campuslifeh + 150
+    text: '''Print Quota
+    (Current Semester)
     
-    
-    Associate Dean
-    
-    
-    Hub Liaison
-    
-    
-    Student Affairs Contact'''
+    PlaidCash'''
     color: "#000"
     textAlign: "left"
     fontSize: textsize
-    width: infoscreenw - 2 * infoborderRadius
-    height: (infoscreen4.height - infoname4.height)*0.15
+    width: campuslifew - 2 * campuslifeborder
+    height: 620
     fontFamily: "OpenSans-bold"
 
-contacttrue = new TextLayer
-    parent: infoscreen4
-    x: infoscreen4.width/2
-    y: 0.03*infoscreenh + 150
-    text: '''Andrew Carnegie
-    acarnegie, 123-4567
+printquotatrue = new TextLayer
+    parent: campuslife5
+    x: campuslife4.width/2
+    y: 0.03*campuslifeh + 150
+    text: '''$40.00
     
-    Andrew Carnegie
-    acarnegie, 123-4567
     
-    Andrew Carnegie
-    acarnegie, 123-4567
-    
-    Andrew Carnegie
-    acarnegie, 123-4567'''
+    $0.00'''
     color: "#000"
     textAlign: "left"
     fontSize: textsize
-    width: infoscreenw - 2 * infoborderRadius
+    width: campuslifew - 2 * campuslifeborder
     fontFamily: "OpenSans"

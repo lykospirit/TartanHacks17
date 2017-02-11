@@ -5,10 +5,10 @@
   "fullScreen" : false,
   "sharedPrototype" : 1,
   "propertyPanelToggleStates" : {
-    "Filters" : false
+
   },
   "deviceType" : "samsung-galaxy-note-5-black",
-  "projectId" : "88B8E38D-A830-4BCE-BBEB-1760B0BDB910",
+  "projectId" : "A0DF79EB-A0F2-41AF-94B3-0BA3A4D8D0A3",
   "deviceOrientation" : 0,
   "selectedHand" : "",
   "foldedCodeRanges" : [
