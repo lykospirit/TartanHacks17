@@ -13,15 +13,59 @@ schedule_background = new BackgroundLayer
 	y: Align.centerY
 	image: "images/CMU-Tartan-Digital.png"
 	
-#Create Tabs for Navigatino
+#Create Tabs for Navigation
 NavigationTab = new Layer			
 	backgroundColor: "white"
 	color: "white"
-	x: Align.center
+	x: Align.left
 	y: Align.bottom
 	width: 1500
 	backgroundColor: "#a91e31"
+
+course_schedule = new Layer
+	x: 100
+	y: -10
+	scale:0.9
+	image: "images/courses_schedule.png"
+
+NavigationTab.addChild(course_schedule)
+
+course_planner = new Layer
+	x:450
+	y:-10
+	scale:0.9
+	image: "images/courses_plan.png"
+
+NavigationTab.addChild(course_planner)
+
+course_register = new Layer
+	x:850
+	y:-10
+	scale:0.9
+	image: "images/courses_register.png"
+
+NavigationTab.addChild(course_register)
 	
+course_grades = new Layer
+	x:1150
+	y:-10
+	scale:0.9
+	image: "images/courses_grades.png"
+
+NavigationTab.addChild(course_grades)
+
+#Handle click on tab
+course_planner.onClick ->
+	flow.visible = false
+	transcript.visible = false
+	
+course_schedule.onClick ->
+	flow.visible = true
+	transcript.visible = false
+
+course_grades.onClick ->
+	flow.visible = false
+	transcript.visible = true
 
 #Create the content
 schedule_Monday = new Layer
@@ -34,8 +78,8 @@ schedule_Monday = new Layer
     color: "white"
 
 monday = new TextLayer
-    text: "Monday"
-    fontSize: 80
+    text: "MONDAY"
+    fontSize: 70
     color: "black"
     x: Align.center(-150)    
 
@@ -51,8 +95,8 @@ schedule_Tuesday = new Layer
     color: "white"
 
 tuesday = new TextLayer
-    text: "Tuesday"
-    fontSize: 80
+    text: "TUESDAY"
+    fontSize: 70
     color: "black"
     x: Align.center(-150)    
 
@@ -68,8 +112,8 @@ schedule_Wednesday = new Layer
     color: "white"
     
  wednesday = new TextLayer
-    text: "Wednesday"
-    fontSize: 80
+    text: "WEDNESDAY"
+    fontSize: 70
     color: "black"
     x: Align.center(-200)    
 
@@ -85,8 +129,8 @@ schedule_Thursday = new Layer
     color: "white"
     
  thursday = new TextLayer
-    text: "Thursday"
-    fontSize: 80
+    text: "THURSDAY"
+    fontSize: 70
     color: "black"
     x: Align.center(-150)    
 
@@ -102,8 +146,8 @@ schedule_Friday = new Layer
     color: "white"
 
  friday = new TextLayer
-    text: "Friday"
-    fontSize: 80
+    text: "FRIDAY"
+    fontSize: 70
     color: "black"
     x: Align.center(-150)    
 
@@ -119,8 +163,8 @@ schedule_Saturday = new Layer
     color: "white"
     
 saturday = new TextLayer
-    text: "Saturday"
-    fontSize: 80
+    text: "SATURDAY"
+    fontSize: 70
     color: "black"
     x: Align.center(-150)    
 
@@ -136,8 +180,8 @@ schedule_Sunday = new Layer
     color: "white"
 
 sunday = new TextLayer
-    text: "Sunday"
-    fontSize: 80
+    text: "SUNDAY"
+    fontSize: 70
     color: "black"
     x: Align.center(-150)    
 
@@ -145,7 +189,7 @@ schedule_Sunday.addChild(sunday)
     
 flow = new FlowComponent
 	x: Align.center
-	y: Align.center
+	y: Align.center(-100)
 	width: 0.9*main_width
 	height: 0.8*main_height
 		
@@ -203,6 +247,7 @@ nineMon = new Layer
 	width: 1000
 	height: 300
 	borderRadius: 20
+	image: "images/schedule_a.png"
 
 timeNineMon = new TextLayer
 	x:Align.left(-80)
@@ -222,6 +267,7 @@ twelveMon = new Layer
 	width: 1000
 	height: 300
 	borderRadius: 20
+	image: "images/schedule_b.png"
 
 timeTwelveMon = new TextLayer
 	x:Align.left(-80)
@@ -242,6 +288,7 @@ threeMon = new Layer
 	height: 300
 	curve: "ease"
 	borderRadius: 20
+	image: "images/schedule_d.png"
 
 timeThreeMon = new TextLayer
 	x:Align.left(-80)
@@ -263,6 +310,7 @@ tenTues = new Layer
 	height: 300
 	curve: "ease"
 	borderRadius: 20
+	image: "images/schedule_d.png"
 
 timeTenTues = new TextLayer
 	x:Align.left(-80)
@@ -271,6 +319,7 @@ timeTenTues = new TextLayer
 	fontSize: 60
 	color: "black"
 	fontFamily: "Times New Roman"
+	
 		
 schedule_Tuesday.addChild(tenTues)
 tenTues.addChild(timeTenTues)
@@ -283,6 +332,7 @@ threeTues = new Layer
 	height: 300
 	curve: "ease"
 	borderRadius: 20
+	image: "images/schedule_c.png"
 
 timeThreeTues = new TextLayer
 	x:Align.left(-80)
@@ -303,6 +353,7 @@ nineWed = new Layer
 	width: 1000
 	height: 300
 	borderRadius: 20
+	image: "images/schedule_a.png"
 
 timeNineWed = new TextLayer
 	x:Align.left(-80)
@@ -322,6 +373,7 @@ twelveWed = new Layer
 	width: 1000
 	height: 300
 	borderRadius: 20
+	image: "images/schedule_b.png"
 
 timeTwelveWed = new TextLayer
 	x:Align.left(-80)
@@ -342,6 +394,7 @@ threeWed = new Layer
 	height: 300
 	curve: "ease"
 	borderRadius: 20
+	image: "images/schedule_d.png"
 
 timeThreeWed = new TextLayer
 	x:Align.left(-80)
@@ -363,6 +416,7 @@ tenThurs = new Layer
 	height: 300
 	curve: "ease"
 	borderRadius: 20
+	image: "images/schedule_b.png"
 
 timeTenThurs = new TextLayer
 	x:Align.left(-80)
@@ -383,6 +437,7 @@ nineFri = new Layer
 	width: 1000
 	height: 300
 	borderRadius: 20
+	image: "images/schedule_a.png"
 
 timeNineFri = new TextLayer
 	x:Align.left(-80)
@@ -393,7 +448,7 @@ timeNineFri = new TextLayer
 	fontFamily: "Times New Roman"
 		
 schedule_Friday.addChild(nineFri)
-nineWed.addChild(timeNineFri)
+nineFri.addChild(timeNineFri)
 
 twelveFri = new Layer
 	backgroundColor: "gray"
@@ -402,6 +457,7 @@ twelveFri = new Layer
 	width: 1000
 	height: 300
 	borderRadius: 20
+	image: "images/schedule_b.png"
 
 timeTwelveFri = new TextLayer
 	x:Align.left(-80)
@@ -421,7 +477,7 @@ threeFri = new Layer
 	width: 1000
 	height: 300
 	curve: "ease"
-	borderRadius: 20
+	image: "images/schedule_d.png"
 
 timeThreeFri = new TextLayer
 	x:Align.left(-80)
@@ -432,7 +488,7 @@ timeThreeFri = new TextLayer
 	fontFamily: "Times New Roman"
 		
 schedule_Friday.addChild(threeFri)
-threeWed.addChild(timeThreeFri)
+threeFri.addChild(timeThreeFri)
 
 #Handle Touch on Schedule Box
 
@@ -523,11 +579,159 @@ threeTues.onTouchStart ->
 threeTues.onTouchEnd ->
 	threeTueDet.animate "fade"
 
-	
-	
+#Wednesday
+nineWedDet = new Layer
+	x: Align.right(-100)
+	y: 400
+	width: 600
+	height: 300
+	backgroundColor: "red"
+	opacity: 0
 
+nineWedDet.states.popUp = 
+	opacity: 1
+nineWedDet.states.fade = 
+	opacity: 0
+nineWed.onTouchStart ->
+	nineWedDet.animate "popUp"
+nineWed.onTouchEnd ->
+	nineWedDet.animate "fade"
 
+twelveWedDet = new Layer
+	x: Align.right(-100)
+	y: 1200
+	width: 600
+	height: 300
+	backgroundColor: "red"
+	opacity: 0
+
+twelveWedDet.states.popUp = 
+	opacity: 1
+twelveWedDet.states.fade = 
+	opacity: 0
+twelveWed.onTouchStart ->
+	twelveWedDet.animate "popUp"
+twelveWed.onTouchEnd ->
+	twelveWedDet.animate "fade"
 	
+threeWedDet = new Layer
+	x: Align.right(-100)
+	y: 2000
+	width: 600
+	height: 300
+	backgroundColor: "red"
+	opacity: 0
+
+threeWedDet.states.popUp = 
+	opacity: 1
+threeWedDet.states.fade = 
+	opacity: 0
+threeWed.onTouchStart ->
+	threeWedDet.animate "popUp"
+threeWed.onTouchEnd ->
+	threeWedDet.animate "fade"
+
+#Thursday
+tenThursDet = new Layer
+	x: Align.right(-100)
+	y: 400
+	width: 600
+	height: 300
+	backgroundColor: "red"
+	opacity: 0
+
+tenThursDet.states.popUp = 
+	opacity: 1
+tenThursDet.states.fade = 
+	opacity: 0
+tenThurs.onTouchStart ->
+	tenThursDet.animate "popUp"
+tenThurs.onTouchEnd ->
+	tenThursDet.animate "fade"
+
+#Friday
+nineFriDet = new Layer
+	x: Align.right(-100)
+	y: 400
+	width: 600
+	height: 300
+	backgroundColor: "red"
+	opacity: 0
+
+nineFriDet.states.popUp = 
+	opacity: 1
+nineFriDet.states.fade = 
+	opacity: 0
+nineFri.onTouchStart ->
+	nineFriDet.animate "popUp"
+nineFri.onTouchEnd ->
+	nineFriDet.animate "fade"
+
+twelveFriDet = new Layer
+	x: Align.right(-100)
+	y: 1200
+	width: 600
+	height: 300
+	backgroundColor: "red"
+	opacity: 0
+
+twelveFriDet.states.popUp = 
+	opacity: 1
+twelveFriDet.states.fade = 
+	opacity: 0
+twelveFri.onTouchStart ->
+	twelveFriDet.animate "popUp"
+twelveFri.onTouchEnd ->
+	twelveFriDet.animate "fade"
+	
+threeFriDet = new Layer
+	x: Align.right(-100)
+	y: 2000
+	width: 600
+	height: 300
+	backgroundColor: "red"
+	opacity: 0
+
+threeFriDet.states.popUp = 
+	opacity: 1
+threeFriDet.states.fade = 
+	opacity: 0
+threeFri.onTouchStart ->
+	threeFriDet.animate "popUp"
+threeFri.onTouchEnd ->
+	threeFriDet.animate "fade"
+
+#Create Grades View
+transcript = new Layer 
+	x: Align.center
+	y: Align.center
+	width: 0.9*main_width
+	height: 0.8*main_height
+	backgroundColor: "white"
+	
+QPAgraph = new Layer
+	x: Align.center(-70)
+	y: 60
+	width: 1200	
+	height: 800
+
+currDetails = new Layer
+	x: Align.center(-70)
+	y: Align.center(-120)
+	width: 1200	
+	height: 500
+
+gradeHistory = new Layer
+	x: Align.center(-70)
+	y: Align.bottom(-600)
+	width: 1200	
+	height: 500
+		
+transcript.addChild(QPAgraph)
+transcript.addChild(currDetails)
+transcript.addChild(gradeHistory)
+
+transcript.visible = false
 
 
 

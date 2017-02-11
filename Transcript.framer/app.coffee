@@ -27,4 +27,3 @@ gradeHistory = new Layer
 transcript.addChild(QPAgraph)
 transcript.addChild(currDetails)
 transcript.addChild(gradeHistory)
-
