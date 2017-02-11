@@ -423,7 +423,7 @@ tenThurs = new Layer
 	height: 300
 	curve: "ease"
 	borderRadius: 20
-	image: "images/schedule_b.png"
+	image: "images/schedule_c.png"
 
 timeTenThurs = new TextLayer
 	x:Align.left(-80)
@@ -504,7 +504,7 @@ nineMonDet = new Layer
 	y: 500
 	width: 600
 	height: 300
-	backgroundColor: "red"
+	image: "images/schedule_a2.png"
 	opacity: 0
 
 nineMonDet.states.popUp = 
@@ -521,7 +521,7 @@ twelveMonDet = new Layer
 	y: 1200
 	width: 600
 	height: 300
-	backgroundColor: "red"
+	image: "images/schedule_b2.png"
 	opacity: 0
 
 twelveMonDet.states.popUp = 
@@ -538,7 +538,7 @@ threeMonDet = new Layer
 	y: 2000
 	width: 600
 	height: 300
-	backgroundColor: "red"
+	image: "images/schedule_d2.png"
 	opacity: 0
 
 threeMonDet.states.popUp = 
@@ -556,7 +556,7 @@ tenTueDet = new Layer
 	y: 500
 	width: 600
 	height: 300
-	backgroundColor: "red"
+	image: "images/schedule_d2.png"
 	opacity: 0
 
 tenTueDet.states.popUp = 
@@ -573,7 +573,7 @@ threeTueDet = new Layer
 	y: 1600
 	width: 600
 	height: 300
-	backgroundColor: "red"
+	image: "images/schedule_c2.png"
 	opacity: 0
 
 threeTueDet.states.popUp = 
@@ -591,7 +591,7 @@ nineWedDet = new Layer
 	y: 400
 	width: 600
 	height: 300
-	backgroundColor: "red"
+	image: "images/schedule_a2.png"
 	opacity: 0
 
 nineWedDet.states.popUp = 
@@ -608,7 +608,7 @@ twelveWedDet = new Layer
 	y: 1200
 	width: 600
 	height: 300
-	backgroundColor: "red"
+	image: "images/schedule_c2.png"
 	opacity: 0
 
 twelveWedDet.states.popUp = 
@@ -625,7 +625,7 @@ threeWedDet = new Layer
 	y: 2000
 	width: 600
 	height: 300
-	backgroundColor: "red"
+	image: "images/schedule_d2.png"
 	opacity: 0
 
 threeWedDet.states.popUp = 
@@ -643,7 +643,7 @@ tenThursDet = new Layer
 	y: 400
 	width: 600
 	height: 300
-	backgroundColor: "red"
+	image: "images/schedule_c2.png"
 	opacity: 0
 
 tenThursDet.states.popUp = 
@@ -661,7 +661,7 @@ nineFriDet = new Layer
 	y: 400
 	width: 600
 	height: 300
-	backgroundColor: "red"
+	image: "images/schedule_a2.png"
 	opacity: 0
 
 nineFriDet.states.popUp = 
@@ -678,7 +678,7 @@ twelveFriDet = new Layer
 	y: 1200
 	width: 600
 	height: 300
-	backgroundColor: "red"
+	image: "images/schedule_b2.png"
 	opacity: 0
 
 twelveFriDet.states.popUp = 
@@ -695,7 +695,7 @@ threeFriDet = new Layer
 	y: 2000
 	width: 600
 	height: 300
-	backgroundColor: "red"
+	image: "images/schedule_d2.png"
 	opacity: 0
 
 threeFriDet.states.popUp = 
