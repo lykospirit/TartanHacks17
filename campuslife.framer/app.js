@@ -2,8 +2,6 @@ var TextLayer, aoaname, campuslife1, campuslife2, campuslife3, campuslife4, camp
 
 TextLayer = require('TextLayer').TextLayer;
 
-Screen.backgroundColor = "#AAEEFF";
-
 main_width = Screen.width;
 
 main_height = Screen.height;
