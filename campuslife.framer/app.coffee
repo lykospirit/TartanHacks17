@@ -2,10 +2,10 @@
 
 main_width = Screen.width
 main_height = Screen.height
-	
-#Create the background	
-quicklinks_background = new BackgroundLayer 
-	x:Align.centerX
+
+#Create the background
+quicklinks_background = new BackgroundLayer
+	x: Align.centerX
 	y: Align.centerY
 	image: "images/CMU-Tartan-Digital.png"
 
@@ -141,14 +141,14 @@ mealplanname = new TextLayer
     fontSize: 80
     width: campuslifew - 2 * campuslifeborder
     height: 100
-    fontFamily: "OpenSans-bold" 
+    fontFamily: "OpenSans-bold"
 
 mealplanlabels = new TextLayer
     parent: campuslife2
     x: mealplanname.x
     y: 0.03*campuslifeh + 150
     text: '''Red 9 Flex Dollars
-    
+
 Dinextra
 
 DInextra Bonus
@@ -168,13 +168,13 @@ mealplantrue = new TextLayer
     x: campuslife2.width/2
     y: 0.03*campuslifeh + 150
     text: '''$900.00
-    
+
     $0.00
-    
+
     $0.00
-    
+
     22 meals
-    
+
     2 meals'''
     color: "#000"
     textAlign: "left"
@@ -203,7 +203,7 @@ diningname = new TextLayer
     fontSize: 80
     width: campuslifew - 2 * campuslifeborder
     height: 100
-    fontFamily: "OpenSans-bold" 
+    fontFamily: "OpenSans-bold"
 
 dininglabels = new TextLayer
     parent: campuslife3
@@ -227,7 +227,7 @@ campuslife4 = new Layer
 	height: campuslifeh
 	backgroundColor: "#FFF"
 	borderRadius: campuslifeborder
-	
+
 mailboxname = new TextLayer
     parent: campuslife4
     x: 0.8*(campuslifeX0 + campuslifeborder)
@@ -238,19 +238,19 @@ mailboxname = new TextLayer
     fontSize: 80
     width: campuslifew - 2 * campuslifeborder
     height: 100
-    fontFamily: "OpenSans-bold" 
+    fontFamily: "OpenSans-bold"
 
 smclabels = new TextLayer
     parent: campuslife4
     x: mailboxname.x
     y: 0.03*campuslifeh + 150
     text: '''SMC Mailbox Number
-    
+
     Combination
-    
+
     Number of Packages
-    
-    
+
+
     Package Descriptions'''
     color: "#000"
     textAlign: "left"
@@ -264,9 +264,9 @@ smctrue = new TextLayer
     x: campuslife4.width/2
     y: 0.03*campuslifeh + 150
     text: '''0000
-    
+
     00-01-02
-    
+
     0'''
     color: "#000"
     textAlign: "left"
@@ -295,7 +295,7 @@ campuslife5 = new Layer
 	height: campuslifeh
 	backgroundColor: "#FFF"
 	borderRadius: campuslifeborder
-	
+
 printingname = new TextLayer
     parent: campuslife5
     x: 0.8*(campuslifeX0 + campuslifeborder)
@@ -306,7 +306,7 @@ printingname = new TextLayer
     fontSize: 80
     width: campuslifew - 2 * campuslifeborder
     height: 100
-    fontFamily: "OpenSans-bold" 
+    fontFamily: "OpenSans-bold"
 
 printquotalabels = new TextLayer
     parent: campuslife5
@@ -314,7 +314,7 @@ printquotalabels = new TextLayer
     y: 0.03*campuslifeh + 150
     text: '''Print Quota
     (Current Semester)
-    
+
     Plaid Cash'''
     color: "#000"
     textAlign: "left"
@@ -328,8 +328,8 @@ printquotatrue = new TextLayer
     x: campuslife4.width/2
     y: 0.03*campuslifeh + 150
     text: '''$40.00
-    
-    
+
+
     $0.00'''
     color: "#000"
     textAlign: "left"
@@ -358,14 +358,14 @@ aoaname = new TextLayer
     fontSize: 80
     width: campuslifew - 2 * campuslifeborder
     height: 100
-    fontFamily: "OpenSans-bold" 
+    fontFamily: "OpenSans-bold"
 
 ttolabel = new TextLayer
     parent: campuslife6
     x: housingname.x
     y: 0.03*campuslifeh + 250
     text: '''You are registered for:
-    
+
     Turn Tartan Overnight'''
     color: "#000"
     textAlign: "left"
