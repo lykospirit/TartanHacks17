@@ -28,4 +28,7 @@ Waitlist = new Layer
 	height: main_height*0.25
 	borderRadius: 20
 
+registration.addChild(Registered)
+registration.addChild(Waitlist)
+
 	

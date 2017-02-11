@@ -60,21 +60,24 @@ course_planner.onClick ->
 	planner.visible = true
 	flow.visible = false
 	transcript.visible = false
+	registration.visible = false
 	
 course_schedule.onClick ->
 	flow.visible = true
 	transcript.visible = false
 	planner.visible = false
+	registration.visible = false
 	
 course_grades.onClick ->
 	flow.visible = false
 	transcript.visible = true
 	planner.visible = false
-
+	registration.visible = false
 course_register.onClick ->
 	flow.visible = false
 	transcript.visible = false
 	planner.visible = false
+	registration.visible = true
 
 #Create the content
 schedule_Monday = new Layer
@@ -90,6 +93,7 @@ schedule_Monday = new Layer
 monday = new TextLayer
     text: "MONDAY"
     fontSize: 70
+    fontFamily: "Verdanaa"
     color: "black"
     x: Align.center(-150)    
 
@@ -109,6 +113,7 @@ tuesday = new TextLayer
     text: "TUESDAY"
     fontSize: 70
     color: "black"
+    fontFamily: "Verdanaa"
     x: Align.center(-150)    
 
 schedule_Tuesday.addChild(tuesday)
@@ -127,6 +132,7 @@ schedule_Wednesday = new Layer
     text: "WEDNESDAY"
     fontSize: 70
     color: "black"
+    fontFamily: "Verdanaa"
     x: Align.center(-200)    
 
 schedule_Wednesday.addChild(wednesday)
@@ -145,6 +151,7 @@ schedule_Thursday = new Layer
     text: "THURSDAY"
     fontSize: 70
     color: "black"
+    fontFamily: "Verdanaa"
     x: Align.center(-150)    
 
 schedule_Thursday.addChild(thursday)
@@ -163,6 +170,7 @@ schedule_Friday = new Layer
     text: "FRIDAY"
     fontSize: 70
     color: "black"
+    fontFamily: "Verdanaa"
     x: Align.center(-150)    
 
 schedule_Friday.addChild(friday)
@@ -181,6 +189,7 @@ saturday = new TextLayer
     text: "SATURDAY"
     fontSize: 70
     color: "black"
+    fontFamily: "Verdanaa"
     x: Align.center(-150)    
 
 schedule_Saturday.addChild(saturday)
@@ -199,6 +208,7 @@ sunday = new TextLayer
     text: "SUNDAY"
     fontSize: 70
     color: "black"
+    fontFamily: "Verdanaa"
     x: Align.center(-150)    
 
 schedule_Sunday.addChild(sunday)
@@ -779,6 +789,16 @@ search_bar = new Layer
 	backgroundColor: "#d3d3d3"
 	borderRadius: 20
 
+search_text = new TextLayer
+	text: "Enter Keyword"
+	fontSize: 80
+	color: "gray"
+	width: 1000
+	x:100
+	y: 50
+
+search_bar.addChild(search_text)
+
 	
 keyboard = new Layer
 	x: Align.center
@@ -792,10 +812,12 @@ keyboard.visible = false
 search_bar.onClick ->
 	keyboard.visible = true
 	choices_plan.visible = true
+	search_text.visible = false
 
 calendar.onClick ->
 	choices_plan.visible = false
 	keyboard.visible = false
+	search_text.visible = true
 
 keyboard.onSwipeDown ->
 	keyboard.visible = false
@@ -1014,7 +1036,32 @@ planner.addChild(calendar)
 
 planner.visible = false
 
+#Registration
+registration = new Layer
+	width: main_width
+	height: main_height
+	backgroundColor: "transparent"
 
-	
-	
+Registered = new Layer
+	x: Align.center
+	y:70
+	width: main_width*0.9
+	height: main_height*0.6
+	borderRadius: 20
+	backgroundColor: "gray"
+	print(main_width*0.9)
+	print(main_height*0.6)
+
+Waitlist = new Layer
+	x: Align.center
+	y: Align.bottom(-250)
+	width: main_width*0.9
+	backgroundColor: "gray"
+	height: main_height*0.25
+	borderRadius: 20
+
+registration.addChild(Registered)
+registration.addChild(Waitlist)
+
+registration.visible = false
 
