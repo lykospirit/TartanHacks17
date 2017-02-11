@@ -43,7 +43,10 @@ quicklinksscreen = new Layer
 	height: linksscreenh
 	backgroundColor: "#FFF"
 	borderRadius: linksborderRadius
-#quicklinksscreen.draggable.vertical = false
+
+# Quicklinks images and text 
+
+imgtext = 35
 
 linksname = new TextLayer
     parent: quicklinksscreen
@@ -57,41 +60,138 @@ linksname = new TextLayer
     height: 100
     fontFamily: "OpenSans-bold"
 
-linkslabels = new TextLayer
-    parent: quicklinksscreen
-    x: linksname.x
-    y: 0.03*linksscreenh + 150
-    text: '''Pittsburgh Police
-    CMU Police
-    Housing Services
-    Health Services
-    Escort Services
-    Amnesty Hotline
-    '''
-    color: "#000"
-    textAlign: "left"
-    fontSize: textsize
-    width: linksscreenw - 2 * linksborderRadius
-    height: (quicklinksscreen.height - linksname.height)*0.47
-    fontFamily: "OpenSans-semibold"
+police = new Layer
+	parent: quicklinksscreen
+	x: 3*linksscreenw/20
+	y: 300
+	width: 3*linksscreenw/10
+	height: 3*linksscreenw/10
+	image: "images/quicklinks_police.png"
 
-linkstrue = new TextLayer
-    parent: quicklinksscreen
-    x: quicklinksscreen.width/2
-    y: 0.03*linksscreenh + 150
-    text: '''123-456-7890
-    123-456-7890
-    123-456-7890
-    123-456-7890
-    123-456-7890
-    123-456-7890
-    '''
-    color: "#000"
-    textAlign: "left"
-    fontSize: textsize
-    width: linksscreenw - 2 * linksborderRadius
-    fontFamily: "OpenSans"
+policetext = new TextLayer
+	parent: quicklinksscreen
+	midX: 3*linksscreenw/10
+	y: police.y + police.height + imgtext
+	text: "Campus Police"
+	width: 3*linksscreenw/10
+	height: 3*linksscreenw/10
+	color: "#000"
+	textAlign: "center"
+	fontSize: 45
+	width: police.width
+	height: 50
+	fontFamily: "OpenSans"
 
+housing = new Layer
+	parent: quicklinksscreen
+	x: police.x + police.width + linksscreenw/10
+	y: 300
+	width: 3*linksscreenw/10
+	height: 3*linksscreenw/10
+	image: "images/quicklinks_housing.png"
+
+housingtext = new TextLayer
+	parent: quicklinksscreen
+	midX: 7*linksscreenw/10
+	y: housing.y + housing.height + imgtext
+	text: "Housing Services"
+	width: 3*linksscreenw/10
+	height: 3*linksscreenw/10
+	color: "#000"
+	textAlign: "center"
+	fontSize: 45
+	width: housing.width
+	height: 50
+	fontFamily: "OpenSans"
+
+health = new Layer
+	parent: quicklinksscreen
+	x: 3*linksscreenw/20
+	y: police.y + police.height + 175
+	width: 3*linksscreenw/10
+	height: 3*linksscreenw/10
+	image: "images/quicklinks_health.png"
+
+healthtext = new TextLayer
+	parent: quicklinksscreen
+	midX: 3*linksscreenw/10
+	y: health.y + health.height + imgtext
+	text: "Health Services"
+	width: 3*linksscreenw/10
+	height: 3*linksscreenw/10
+	color: "#000"
+	textAlign: "center"
+	fontSize: 45
+	width: health.width
+	height: 50
+	fontFamily: "OpenSans"
+
+caps = new Layer
+	parent: quicklinksscreen
+	x: health.x + health.width + linksscreenw/10
+	y: housing.y + housing.height + 175
+	width: 3*linksscreenw/10
+	height: 3*linksscreenw/10
+	image: "images/quicklinks_caps.png"
+
+capstext = new TextLayer
+	parent: quicklinksscreen
+	midX: 7*linksscreenw/10
+	y: caps.y + caps.height + imgtext
+	text: "CaPS"
+	width: 3*linksscreenw/10
+	height: 3*linksscreenw/10
+	color: "#000"
+	textAlign: "center"
+	fontSize: 45
+	width: caps.width
+	height: 50
+	fontFamily: "OpenSans"
+	
+oie = new Layer
+	parent: quicklinksscreen
+	x: 3*linksscreenw/20
+	y: health.y + health.height + 175
+	width: 3*linksscreenw/10
+	height: 3*linksscreenw/10
+	image: "images/quicklinks_oie.png"
+
+oietext = new TextLayer
+	parent: quicklinksscreen
+	midX: 3*linksscreenw/10
+	y: oie.y + oie.height + imgtext
+	text: "OIE"
+	width: 3*linksscreenw/10
+	height: 3*linksscreenw/10
+	color: "#000"
+	textAlign: "center"
+	fontSize: 45
+	width: oie.width
+	height: 50
+	fontFamily: "OpenSans"
+
+escort = new Layer
+	parent: quicklinksscreen
+	x: oie.x + oie.width + linksscreenw/10
+	y: caps.y + caps.height + 175
+	width: 3*linksscreenw/10
+	height: 3*linksscreenw/10
+	image: "images/quicklinks_escort.png"
+
+escorttext = new TextLayer
+	parent: quicklinksscreen
+	midX: 7*linksscreenw/10
+	y: escort.y + escort.height + imgtext
+	text: "Late Night Escort"
+	width: 3*linksscreenw/10
+	height: 3*linksscreenw/10
+	color: "#000"
+	textAlign: "center"
+	fontSize: 45
+	width: caps.width
+	height: 50
+	fontFamily: "OpenSans"
+	
 ### CAMPUS MAP ###
 
 campusmapscreen = new Layer
