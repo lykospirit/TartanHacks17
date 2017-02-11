@@ -13,6 +13,21 @@ schedule_background = new BackgroundLayer
 	y: Align.centerY
 	image: "images/CMU-Tartan-Digital.png"
 	
+hideCourses = () =>
+	flow.visible = false
+	NavigationTab.visible = false
+	planner.visible = false
+	transcript.visible = false
+	registration.visible = false
+	
+viewCourses = () =>
+	flow.visible = true
+	NavigationTab.visible = true
+	planner.visible = false
+	transcript.visible = false
+	registration.visible = false
+
+
 #Create Tabs for Navigation
 NavigationTab = new Layer			
 	backgroundColor: "white"
@@ -735,23 +750,54 @@ transcript = new Layer
 	backgroundColor: "white"
 	
 QPAgraph = new Layer
-	x: Align.center(-70)
+	x: Align.center(-150)
 	y: 60
-	width: 1200	
+	width: 1000	
 	height: 800
+	image: "images/grades_graph.png"
 
 currDetails = new Layer
 	x: Align.center(-70)
 	y: Align.center(-120)
 	width: 1200	
 	height: 500
+	backgroundColor: "white"
+	borderWidth: 2
+	borderRadius: 20
+	
+currDetails_text = new TextLayer
+	text: "CURRENT GRADES \n \n OS  A \n COMPILER A \n PAR COMP ARCH A \n ALG. DES AND ANAL. A"
+	width: 650
+	fontSize: 60
+	fontFamily: "Open Sans"
+	color: "black"
+	x:20
+	y: 20
+	
+
+
+currDetails.addChild(currDetails_text)
 
 gradeHistory = new Layer
 	x: Align.center(-70)
 	y: Align.bottom(-600)
 	width: 1200	
 	height: 500
-		
+	borderRadius: 20
+	backgroundColor: "white"
+	borderWidth: 2
+
+gradeHist_text = new TextLayer
+	text: "HISTORY \n \n PRINC IMPRTV PROG  A \n PRINC FUNCT PROG A \n GREAT THEO COMP SCI A \n INTRO TO SYS B"
+	width: 1000
+	fontSize: 60
+	fontFamily: "Open Sans"
+	color: "black"
+	x:20
+	y: 20
+	
+gradeHistory.addChild(gradeHist_text)
+
 transcript.addChild(QPAgraph)
 transcript.addChild(currDetails)
 transcript.addChild(gradeHistory)
@@ -777,10 +823,13 @@ planner = new Layer
 	
 calendar = new Layer
 	x: Align.center
-	y: Align.center(50)
+	y: Align.center(40)
 	width: main_width*0.9
-	height: main_height*0.75
-	backgroundColor: "blue"
+	height: main_height*0.8
+	image: "images/schedule_empty.png"
+
+calendar.states.added = 
+	image: "images/schedule_filled.png"
 
 search_bar = new Layer
 	x:Align.center
@@ -864,6 +913,10 @@ recentBar.onDragStart ->
 recentBar.onDragEnd ->
 	recentBar.animate "end"
 	recentImg.visible = true
+	calendar.animate "added"
+	choices_plan.visible = false
+	keyboard.visible = false
+	
 	
 recentText = new TextLayer
 	text: "compiler"
@@ -1049,16 +1102,35 @@ Registered = new Layer
 	height: main_height*0.6
 	borderRadius: 20
 	backgroundColor: "gray"
-	print(main_width*0.9)
-	print(main_height*0.6)
+	image: "images/registered.png"
 
 Waitlist = new Layer
 	x: Align.center
 	y: Align.bottom(-250)
 	width: main_width*0.9
-	backgroundColor: "gray"
+	backgroundColor: "white"
 	height: main_height*0.25
 	borderRadius: 20
+	
+Waitlist_text = new TextLayer
+	text: "WAITLIST"
+	fontFamily: "Open Sans"
+	fontSize: "60"
+	y: 40
+	x: 50
+	color: "black"
+
+Waitlist_text2 = new TextLayer
+	text: "THERE IS NO COURSE ON WAITLIST RIGHT NOW"
+	fontFamily: "Open Sans"
+	fontSize: "60"
+	width: 1000
+	y: 130
+	x: 50
+	color: "black"
+
+Waitlist.addChild(Waitlist_text)
+Waitlist.addChild(Waitlist_text2)	
 
 registration.addChild(Registered)
 registration.addChild(Waitlist)
