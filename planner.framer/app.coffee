@@ -1,12 +1,19 @@
 #Import necessary module
 {TextLayer} = require 'TextLayer'
 
+
 # Set background color
 Screen.backgroundColor = "#AAEEFF"
 
 main_width = Screen.width
 main_height = Screen.height
 
+planner = new Layer
+	width: main_width
+	height: main_height
+	opacity: 1
+	backgroundColor: "transparent"
+	
 calendar = new Layer
 	x: Align.center
 	y: Align.center(50)
@@ -249,3 +256,8 @@ choices_plan.addChild(sug3)
 sug3.addChild(sug3Text)
 
 choices_plan.visible = false
+
+planner.addChild(search_bar)
+planner.addChild(calendar)
+
+planner.visible = true
