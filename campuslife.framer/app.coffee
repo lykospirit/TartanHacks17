@@ -1,8 +1,5 @@
 {TextLayer} = require 'TextLayer'
 
-# Set background color
-Screen.backgroundColor = "#AAEEFF"
-
 main_width = Screen.width
 main_height = Screen.height
 	
