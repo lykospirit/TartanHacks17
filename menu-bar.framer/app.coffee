@@ -18,8 +18,27 @@ NavBar = new Layer
 	height: main_height
 	backgroundColor: "transparent"
 	x:-2000
-		
-	
+
+bar1 = new Layer
+	backgroundColor: "black"
+	width:100
+	height:3
+	y: 100
+	x: 65
+
+bar2 = new Layer
+	backgroundColor: "black"
+	width:100
+	height:3
+	y: 120
+	x: 65
+
+bar3 = new Layer
+	backgroundColor: "black"
+	width:100
+	height:3
+	y: 140
+	x: 65
 	
 my_info = new Layer
 	x: 0
@@ -31,9 +50,9 @@ my_info = new Layer
 myInfo_text = new TextLayer
 	text: "MY INFO"
 	fontSize: 100
-	fontFamily: "BEBAS"
+	fontFamily: "Open Sans"
 	color: "white"
-	x: 550
+	x: 500
 	y: 150
 	width:600
 	
@@ -51,9 +70,9 @@ courses = new Layer
 courses_text = new TextLayer
 	text: "COURSES"
 	fontSize: 100
-	fontFamily: "BEBAS"
+	fontFamily: "Open Sans"
 	color: "black"
-	x: 550
+	x: 500
 	y: 150
 	
 
@@ -70,10 +89,10 @@ campus_life = new Layer
 campusLife_text = new TextLayer
 	text: "CAMPUS LIFE"
 	fontSize: 100
-	fontFamily: "BEBAS"
+	fontFamily: "Open Sans"
 	color: "white"
 	width: 800
-	x: 500
+	x: 450
 	y: 150
 	
 NavBar.addChild(campus_life)
@@ -89,10 +108,10 @@ QuickLinks= new Layer
 QuickLinks_text = new TextLayer
 	text: "QUICK LINKS"
 	fontSize: 100
-	fontFamily: "BEBAS"
+	fontFamily: "Open Sans"
 	color: "black"
 	width: 800
-	x: 500
+	x: 450
 	y: 150
 	
 NavBar.addChild(QuickLinks)
@@ -102,8 +121,21 @@ QuickLinks.addChild(QuickLinks_text)
 NavBar.states.inView = 
 	x: 0
 
+NavBar.states.hide = 
+	x: -2000
+	
+navBarView = false
+
 menu_bar.onClick ->
-	NavBar.animate "inView"
+	if not navBarView
+		NavBar.animate "inView"
+		navBarView = true
+	if navBarView
+		NavBar.animate "hide"
+		navBarView = false
+		
+
+
 
 
 
