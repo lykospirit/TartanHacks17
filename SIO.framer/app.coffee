@@ -76,6 +76,7 @@ schedule_Monday = new Layer
     opacity: 1
     backgroundColor: "white"
     color: "white"
+    borderRadius: 30
 
 monday = new TextLayer
     text: "MONDAY"
@@ -93,7 +94,8 @@ schedule_Tuesday = new Layer
     opacity: 1
     backgroundColor: "white"
     color: "white"
-
+    borderRadius: 30
+	
 tuesday = new TextLayer
     text: "TUESDAY"
     fontSize: 70
@@ -110,6 +112,7 @@ schedule_Wednesday = new Layer
     opacity: 1
     backgroundColor: "white"
     color: "white"
+    borderRadius: 30
     
  wednesday = new TextLayer
     text: "WEDNESDAY"
@@ -127,6 +130,7 @@ schedule_Thursday = new Layer
     opacity: 1
     backgroundColor: "white"
     color: "white"
+    borderRadius: 30
     
  thursday = new TextLayer
     text: "THURSDAY"
@@ -144,6 +148,7 @@ schedule_Friday = new Layer
     opacity: 1
     backgroundColor: "white"
     color: "white"
+    borderRadius: 30
 
  friday = new TextLayer
     text: "FRIDAY"
@@ -161,6 +166,7 @@ schedule_Saturday = new Layer
     opacity: 1
     backgroundColor: "white"
     color: "white"
+    borderRadius: 30
     
 saturday = new TextLayer
     text: "SATURDAY"
@@ -178,7 +184,8 @@ schedule_Sunday = new Layer
     opacity: 1
     backgroundColor: "white"
     color: "white"
-
+    borderRadius: 30
+    
 sunday = new TextLayer
     text: "SUNDAY"
     fontSize: 70
@@ -476,7 +483,6 @@ threeFri = new Layer
 	y: Align.bottom(-650)
 	width: 1000
 	height: 300
-	curve: "ease"
 	image: "images/schedule_d.png"
 
 timeThreeFri = new TextLayer
@@ -704,7 +710,7 @@ threeFri.onTouchEnd ->
 #Create Grades View
 transcript = new Layer 
 	x: Align.center
-	y: Align.center
+	y: Align.center(-100)
 	width: 0.9*main_width
 	height: 0.8*main_height
 	backgroundColor: "white"
